@@ -15,7 +15,7 @@ function writePassword() {
 generateBtn.addEventListener("click", writePassword);
 
 function generatePassword() {
-    var selectedLength = window.prompt("Choose a password length between 8 and 128 characters");
+    var selectedLength = window.prompt("Please select a password length between 8 and 128 characters.");
     var passwordLength = parseInt(selectedLength);
         if (passwordLength <= 7) {
             window.alert("That password is too short. Please try again.");
@@ -24,13 +24,49 @@ function generatePassword() {
             window.alert("That password is too long. Please try again.");
         generatePassword(); }
         else {
-            return;
+            window.alert("Great! Your password will be " + passwordLength + " characters in length.");
         }
+        var specCharArray = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "-", "_", "=", "+", "[", "]", "{", "}", "<", ";", ">", "?", "~", "`"];
+        var numArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
+        var uppercaseArray = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+        var lowercaseArray = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+        var userChoicePw = [];
 
+    function concatSelectedArrays () {
+        var specCharSelect = window.confirm("If you would like your password to contain special characters, select OK.\nIf not, select Cancel.")
+            if (specCharSelect === true) {
+                userChoicePw = userChoicePw.concat(specCharArray);
+                window.alert("Your password will contain special characters.");
+            }
+// something went wrong when nesting these, no longer concatenating as expected!
+
+        // var numSelect = window.confirm("If you would like your password to contain numbers, select OK.\nIf not, select Cancel.")
+        // if (numSelect === true) {
+        //     userChoicePw = userChoicePw.concat(numArray);
+        //     window.alert("Your password will contain numbers.");
+        // }
+        // var uppercaseSelect = window.confirm("If you would like your password to contain uppercase letters, select OK.\nIf not, select Cancel.")
+        // if (uppercaseSelect === true) {
+        //     userChoicePw = userChoicePw.concat(uppercaseArray);
+        //     window.alert("Your password will contain uppercase letters.");
+        // }
+        // var lowercaseSelect = window.confirm("If you would like your password to contain lowercase letters, select OK.\nIf not, select Cancel.")
+        // if (lowercaseSelect === true) {
+        //     userChoicePw = userChoicePw.concat(lowercaseArray);
+        //     window.alert("Your password will contain uppercase letters.");
+        // }
+    }
+        // remove this console log later on
+        console.log(userChoicePw)
+    concatSelectedArrays()
+    // is there a way to loop this program if user doesn't make a selection? Or close the generator? 
 }
-    
-    var passwordCharacters = 0
-    
+
+
+    // pull from each selected array to create the new array (selected password)
+    // display the new password
+    // look for more edge cases (such as non-numerical entries in the initial prompt- can convert strings to a number?)
+
     // selectedLength variable needs to be counted by the password generator
     
 
@@ -53,5 +89,4 @@ function generatePassword() {
 //   choose random chars from arr based on user input
 //   var push into new array
 // var password = turn array into string .toString()
-
-// return password;
+// return password
