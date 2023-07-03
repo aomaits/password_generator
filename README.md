@@ -3,6 +3,9 @@
 ## Description
 This password generator is intended to provide a secure randomized password based on the user's imputs.
 
+## Installation
+Not necessary. This webpage is intended to be accessible across all browser types. 
+
 ## Usage
 The user selects a password length between 8 and 128 characters. The user then selects at least one type of from the available options: uppercase, lowercase, numerical, and special. 
 
